@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Year Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leap Year Checker</h1>
+    <p>Enter a year to check if it's a leap year:</p>
+    <input type="text" id="yearInput">
+    <button onclick="checkLeapYear()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function checkLeapYear() {
+            const year = parseInt(document.getElementById("yearInput").value);
+
+            if (isLeapYear(year)) {
+                document.getElementById("result").innerText = year + " is a leap year!";
+            } else {
+                document.getElementById("result").innerText = year + " is not a leap year.";
+            }
+        }
+
+        function isLeapYear(year) {
+            // Leap year conditions: divisible by 4 and not divisible by 100, unless divisible by 400
+            if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
